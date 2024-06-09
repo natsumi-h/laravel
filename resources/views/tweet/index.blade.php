@@ -11,7 +11,7 @@
     <h1>Tweet App</h1>
     <ul>
         @foreach ($tweets as $tweet)
-        <li>{{$tweet->id}}:{{ $tweet->content }}</li>
+        <li>{{$tweet->id}}:{{ $tweet->content }} by {{$tweet->user->name}}</li>
         <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id]) }}">Update</a>
         <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="post">
             @method('DELETE')

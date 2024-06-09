@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Tweet;
+namespace App\Http\Controllers\Restaurant;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests\Tweet\CreateRequest;
-use App\Models\Tweet;
+use App\Http\Requests\Restaurant\CreateRequest;
+use App\Models\Restaurant;
 
 class CreateController extends Controller
 {
@@ -15,12 +14,12 @@ class CreateController extends Controller
     public function __invoke(CreateRequest $request)
     {
         // Tweetモデルのインスタンスを生成
-        $tweet = new Tweet;
+        $restaurant = new Restaurant;
         // リクエストから取得したツイート内容をcontentプロパティに代入
-        $tweet->content = $request->tweet();
+        $restaurant->content = $request->restaurant();
         // ツイートを保存
-        $tweet->save();
+        $restaurant->save();
         // ツイート一覧画面にリダイレクト
-        return redirect()->route('tweet.index');
+        return redirect()->route('restaurant.index');
     }
 }
