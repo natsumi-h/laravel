@@ -13,13 +13,21 @@ class CreateController extends Controller
      */
     public function __invoke(CreateRequest $request)
     {
-        // Tweetモデルのインスタンスを生成
-        $restaurant = new Restaurant;
-        // リクエストから取得したツイート内容をcontentプロパティに代入
-        $restaurant->content = $request->restaurant();
-        // ツイートを保存
-        $restaurant->save();
-        // ツイート一覧画面にリダイレクト
-        return redirect()->route('restaurant.index');
+        $restaurant = Restaurant::create([
+            // 'user_id' => auth()->id(),
+            'user_id' => 1,
+            'name' => $request->name(),
+            'image' => $request->image(),
+            'category' => $request->category(),
+            'description' => $request->description(),
+            'address' => $request->address(),
+            'phone' => $request->phone(),
+            'maxPax' => $request->maxPax(),
+        ]);
+
+        return response()->json([
+            'message' => 'Restaurant created successfully.',
+            'restaurant' => $restaurant,
+        ]);
     }
 }

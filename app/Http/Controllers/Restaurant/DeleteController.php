@@ -8,9 +8,6 @@ use App\Models\Restaurant;
 
 class DeleteController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function __invoke(Request $request)
     {
         $restaurantId = (int) $request->route('restaurantId');

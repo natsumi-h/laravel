@@ -13,4 +13,20 @@ class Restaurant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'name',
+        'image',
+        'category',
+        'description',
+        'address',
+        'phone',
+        'maxPax'
+    ];
 }

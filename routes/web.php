@@ -38,6 +38,14 @@ Route::prefix('tweet')->name('tweet.')->group(function () {
     });
 });
 
+// csrf token
+// Route::get('/csrf-cookie', function () {
+//     return response()->json([
+//         'token' => csrf_token()
+//     ]);
+// });
+
+
 
 // RestaURant Routes Group
 $restaurantNamespace = '\App\Http\Controllers\Restaurant';
@@ -46,6 +54,7 @@ Route::prefix('restaurant')->name('restaurant.')->namespace($restaurantNamespace
     // Get all restaurants
     // /restaurant
     Route::get('/', 'IndexController')->name('index');
+
 
     // Get a single restaurant
     // /restaurant/{restaurantId}
